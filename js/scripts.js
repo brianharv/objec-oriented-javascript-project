@@ -77,14 +77,17 @@ function displayPizzaSizeAndToppings(shoppingCartToDisplay) {
 }
 */
 
+   
+
+
 $(document).ready(function() {
   $("#pizza-checkbox").submit(function(event) {
     event.preventDefault();
     const pizzaSize = $("input:radio[name=size]:checked").val();
     $("#pizza-size").text(pizzaSize);
-    $("input:checkbox[name=pizza-topping]:checked").each(function() {
-      const toppingSelection = $(this).val();
-      $("#pizza-toppings").append(toppingSelection + "<br>");  
+    let toppingSelection = $("input:checkbox[name=pizza-topping]:checked").each(function() {
+      const selectedToppings = $(this).val();
+      $("#pizza-toppings").append(selectedToppings + "<br>");  
     })
     let newPizza = new Pizza(pizzaSize, toppingSelection)
     shoppingCart.addPizza(newPizza);
@@ -99,4 +102,9 @@ $(document).ready(function() {
         priceOfToppings += 1;
     }
   }
+
+
+   
+
+  
   */
