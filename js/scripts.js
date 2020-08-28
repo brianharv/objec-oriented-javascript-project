@@ -67,7 +67,7 @@ ShoppingCart.prototype.pizzaTracker = function(id) { //find contact or search
 // User Interface Logic
 
 let shoppingCart = new ShoppingCart();
-
+/*
 function displayPizzaSizeAndToppings(shoppingCartToDisplay) {
   let pizzaList = $("ul#pizza-toppings");
   let htmlForPizzaList = "";
@@ -76,6 +76,7 @@ function displayPizzaSizeAndToppings(shoppingCartToDisplay) {
   });
   pizzaList.html(htmlForPizzaList);
 }
+*/
 
 $(document).ready(function() {
   $("#pizza-checkbox").submit(function(event) {
@@ -83,11 +84,11 @@ $(document).ready(function() {
     const pizzaSize = $("input:radio[name=size]:checked").val();
     $("#pizza-size").text(pizzaSize);
     $("input:checkbox[name=pizza-topping]:checked").each(function() {
-      const selectedToppings = $(this).val();
-      $("#pizza-toppings").append(selectedToppings + "<br>");
+      const toppingSelection = $(this).val();
+      $("#pizza-toppings").append(toppingSelection + "<br>");  
+    })
     let newPizza = new Pizza(pizzaSize, selectedToppings)
     shoppingCart.addPizza(newPizza);
-    })
   })
 })
 
