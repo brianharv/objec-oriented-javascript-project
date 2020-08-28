@@ -39,10 +39,10 @@ function ShoppingCart() {
 
 ShoppingCart.prototype.addPizza = function(pizza) {
   this.pizzas.push(pizza),
-  this.totalPizzas();
+  this.assignPizzaId();
 }
 
-ShoppingCart.prototype.assignPizzaId = function() { //assign Id /giftCount
+ShoppingCart.prototype.assignPizzaId = function() { //assign Id 
   this.pizzaId += 1;
   return this.pizzaId;
 }
@@ -61,9 +61,26 @@ ShoppingCart.prototype.pizzaTracker = function(id) { //find contact or search
 
 // User Interface Logic
 
-//let shoppingCart = new ShoppingCart();
+let shoppingCart = new ShoppingCart();
 
-//$(document).ready(function) 
+function displayPizzaSizeAndToppings(shoppingCartToDisplay) {
+  let toppingsList = $("ul#pizza-toppings");
+  let htmlForToppings = "";
+  shoppingCartToDisplay.pizzas.forEach
+}
+
+$(document).ready(function() {
+  $("#pizza-checkbox").submit(function(event) {
+    event.preventDefault();
+    const pizzaSize = $("input:radio[name=size]:checked").val();
+    $("#pizza-size").text(pizzaSize);
+    $("input:checkbox[name=pizza-topping]:checked").each(function() {
+      const selectedToppings = $(this).val();
+      $("#pizza-toppings").append(selectedToppings + "<br>");
+    })
+    
+  })
+})
 
 
 
