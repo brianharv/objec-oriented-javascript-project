@@ -31,7 +31,11 @@ _For any questions or feedback, feel free to [contact me](mailto:brian.harv3y@gm
 
 ## Technologies Used
 
-_{Tell me about the languages and tools you used to create this app. Assume that I know you probably used HTML and CSS. If you did something really cool using only HTML, point that out.}_
+_HTML_
+_CSS_
+_jQuery_
+_Javascript_
+_Bootstrap_
 
 ### License
 
