@@ -12,14 +12,86 @@
 <body>
   <div class="container-fluid">
     <div class="jumbotron">
-
+      <h1>Please Place Your Order</h1>
     </div>
   </div>
   <div class="container-fluid">
     <div class="row">
       <div class="col-12">
       <!--Form-->
-
+        <form id="pizza-checkbox">
+          <fieldset>
+            <legend>Choose Your Pizza Size</legend>
+            <div class="radio">
+              <label>
+                <input type="radio" name="size" value="1">
+                Small
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="size" value="2">
+                Medium
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="size" value="3">
+                Large
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="size" value="4">
+                X-Large
+              </label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Choose Your Toppings:</legend>
+            <div>
+              <input type="checkbox" id="cheese" name="topping" value="5">
+              <label for="cheese">Cheese</label>
+            </div>
+            <div>
+            <input type="checkbox" id="pepperoni" name="topping" value="6">
+              <label for="pepperoni">Pepperoni</label>
+            </div>
+            <div>
+              <input type="checkbox" id="canadian-bacon" name="topping" value="7">
+                <label for="canadian-bacon">Canadian Bacon</label>
+            </div>
+            <div>
+              <input type="checkbox" id="sausage" name="topping" value="8">
+                <label for="sausage">Italian Sausage</label>
+            </div>
+            <div>
+              <input type="checkbox" id="olives" name="topping" value="9">
+                <label for="olives">Black Olives</label>
+            </div>
+            <div>
+              <input type="checkbox" id="onions" name="topping" value="10">
+                <label for="onions">Onions</label>
+            </div>
+            <div>
+              <input type="checkbox" id="olives" name="topping" value="11">
+                <label for="olives">Black Olives</label>
+            </div>
+            <div>
+              <input type="checkbox" id="peppers" name="topping" value="12">
+                <label for="peppers">Bell Peppers</label>
+            </div>
+            <div>
+              <input type="checkbox" id="jalapenos" name="topping" value="13">
+                <label for="jalapenos">Jalapenos</label>
+            </div>
+            <div>
+              <input type="checkbox" id="artichoke" name="topping" value="14">
+                <label for="artichoke">Artichoke</label>
+            </div>
+          </fieldset>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
       </div>
     </div>
   </div>  
