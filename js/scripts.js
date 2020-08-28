@@ -6,14 +6,26 @@ function Pizza(size, toppings) {
 }
 
 Pizza.prototype.addToppings = function() {
-  let toppingsPrice = 0;
-  for (let i= 0; i< this.toppings.length -1; i++) {
-    if (i > 2) {                                                  //
-        toppingsPrice += 1;
-    }
-  }
-  this.toppingsPrice = toppingsPrice;
+  let priceOfToppings = 0;
+  this.toppings.forEach(element => {
+    priceOfToppings += 1;
+  });
+  this.toppingsPrice = priceOfToppings;
 }
+
+Pizza.prototype.selectSize = function() {
+  let price = 0;
+  if (this.size === "small") {
+    price = 7;
+  } else if (this.size === "medium") {
+    price = 10;
+  } else if (this.size === "large") {
+    price = 15;
+  } else if (this.size === "x-large") {
+    price = 20;
+  }
+  return price;
+}  
   
 
 
@@ -56,11 +68,9 @@ ShoppingCart.prototype.pizzaTracker = function(id) { //find contact or search
 
 
 /*
-let toppingPrice = 0;
-  for (let i=0; i< this.toppings.length -1; i++){
-    if (this.toppings.length -1 > 3) {
-      return toppingPrice += 1;
-    }  
+ for (let i= 0; i< this.toppings.length -1; i++) {
+    if (i > 2) {                                                  //
+        priceOfToppings += 1;
+    }
   }
-  return toppingPrice;
   */
