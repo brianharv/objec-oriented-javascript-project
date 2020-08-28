@@ -1,18 +1,18 @@
 //Business Logic for Pizza Constructor
-function Pizza(size, toppings, toppingsPrice) {
+function Pizza(size, toppings) {
   this.size = size,
   this.toppings = toppings,
-  this.toppingsPrice = toppingsPrice
+  this.toppingsPrice = 0
 }
 
 Pizza.prototype.addToppings = function() {
   let toppingsPrice = 0;
   for (let i= 0; i< this.toppings.length -1; i++) {
-    if (this.toppings[i] > 2) {
-        this.toppingsPrice += 1;
+    if (i > 2) {                                                  //
+        toppingsPrice += 1;
     }
   }
-  return toppingsPrice;
+  this.toppingsPrice = toppingsPrice;
 }
   
 
