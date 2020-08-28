@@ -3,13 +3,12 @@ function Pizza(size, toppings) {
   this.size = size,
   this.toppings = toppings
 }
-/*
+
 Pizza.prototype.addToppings = function(toppings) {
   let toppingsValue = 
-  }
 
-}
-*/
+
+
 // Business Logic for Shopping Cart
 function ShoppingCart() {
   this.pizzas = [];
@@ -26,7 +25,6 @@ ShoppingCart.prototype.assignPizzaId = function() { //assign Id /giftCount
   return this.pizzaId;
 }
 
-ShoppingCart.prototype.
 
 ShoppingCart.prototype.pizzaTracker = function(id) { //find contact or search
   for (let i=0; i< this.pizzas.length -1; i++) {
@@ -40,3 +38,5 @@ ShoppingCart.prototype.pizzaTracker = function(id) { //find contact or search
 }
 
 // User Interface Logic
+
+//$(document).ready(function) 
