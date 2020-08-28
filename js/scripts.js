@@ -2,7 +2,8 @@
 function Pizza(size, toppings) {
   this.size = size,
   this.toppings = toppings,
-  this.toppingsPrice = 0
+  this.toppingsPrice = 0,
+  this.totalPrice = 0
 }
 
 Pizza.prototype.addToppings = function() {
@@ -27,7 +28,11 @@ Pizza.prototype.selectSize = function() {
   return price;
 }  
   
-
+Pizza.prototype.pizzaPrice = function() {
+  let subtotalToppings = addToppings();
+  let subtotalSize = selectSize();
+  this.totalPrice = subtotalSize + subtotalToppings;
+}
 
 
 
@@ -38,8 +43,8 @@ function ShoppingCart() {
 }
 
 ShoppingCart.prototype.addPizza = function(pizza) {
-  this.pizzas.push(pizza),
-  this.assignPizzaId();
+  pizza.id = this.assignPizzaId();
+  this.pizzas.push(pizza)
 }
 
 ShoppingCart.prototype.assignPizzaId = function() { //assign Id 
@@ -51,7 +56,7 @@ ShoppingCart.prototype.assignPizzaId = function() { //assign Id
 ShoppingCart.prototype.pizzaTracker = function(id) { //find contact or search
   for (let i=0; i< this.pizzas.length -1; i++) {
     if (this.pizzas[i]) {
-      if (this.pizzas[i]. id == id) {
+      if (this.pizzas[i].id == id) {
         return this.pizzas[i];
       }
     } 
@@ -64,9 +69,12 @@ ShoppingCart.prototype.pizzaTracker = function(id) { //find contact or search
 let shoppingCart = new ShoppingCart();
 
 function displayPizzaSizeAndToppings(shoppingCartToDisplay) {
-  let toppingsList = $("ul#pizza-toppings");
-  let htmlForToppings = "";
-  shoppingCartToDisplay.pizzas.forEach
+  let pizzaList = $("ul#pizza-toppings");
+  let htmlForPizzaList = "";
+  shoppingCartToDisplay.pizzas.forEach(function(pizza) {
+    htmlForPizzaList += "<li id=" + pizza.id + ">" + pizza.size + " " + pizza.toppings + "</li>";
+  });
+  pizzaList.html(htmlForPizzaList);
 }
 
 $(document).ready(function() {
@@ -77,8 +85,9 @@ $(document).ready(function() {
     $("input:checkbox[name=pizza-topping]:checked").each(function() {
       const selectedToppings = $(this).val();
       $("#pizza-toppings").append(selectedToppings + "<br>");
+    let newPizza = new Pizza(pizzaSize, selectedToppings)
+    shoppingCart.addPizza(newPizza);
     })
-    
   })
 })
 
