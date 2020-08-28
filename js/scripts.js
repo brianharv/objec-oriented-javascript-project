@@ -5,7 +5,12 @@ function Pizza(size, toppings) {
 }
 
 Pizza.prototype.addToppings = function(toppings) {
-  let toppingsValue = 
+  let toppingPrice = 0;
+  if (this.toppings.legnth -1 > 3) {
+    toppingPrice += 1;
+  } return toppingPrice;
+}
+
 
 
 
