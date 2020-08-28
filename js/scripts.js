@@ -3,6 +3,7 @@ function Pizza(size, toppings) {
   this.size = size,
   this.toppings = toppings,
   this.toppingsPrice = 0,
+  this.sizeCost = 0,
   this.totalPrice = 0
 }
 
@@ -25,15 +26,13 @@ Pizza.prototype.selectSize = function() {
   } else if (this.size === "x-large") {
     price = 20;
   }
-  return price;
+  this.sizeCost = price;
+  
 }  
   
-Pizza.prototype.pizzaPrice = function() {
-  let subtotalToppings = addToppings();
-  let subtotalSize = selectSize();
-  this.totalPrice = subtotalSize + subtotalToppings;
+Pizza.prototype.pizzaPrice = function () {
+  this.totalPrice = this.sizeCost + this.toppingsPrice;
 }
-
 
 
 // Business Logic for Shopping Cart
@@ -87,7 +86,7 @@ $(document).ready(function() {
       const toppingSelection = $(this).val();
       $("#pizza-toppings").append(toppingSelection + "<br>");  
     })
-    let newPizza = new Pizza(pizzaSize, selectedToppings)
+    let newPizza = new Pizza(pizzaSize, toppingSelection)
     shoppingCart.addPizza(newPizza);
   })
 })
