@@ -8,12 +8,10 @@ function Pizza(size, toppings) {
 }
 
 Pizza.prototype.addToppings = function() {
-  let priceOfToppings = 0;
-  this.toppings.forEach(element => {
-    priceOfToppings += 1;
-  });
-  this.toppingsPrice = priceOfToppings;
-}
+  return this.toppingsPrice = this.toppings.length;
+}  
+
+// this.toppingsPrice = toppings.length;
 
 Pizza.prototype.selectSize = function() {
   let price = 0;
@@ -26,12 +24,11 @@ Pizza.prototype.selectSize = function() {
   } else if (this.size === "x-large") {
     price = 20;
   }
-  this.sizeCost = price;
-  
+  return this.sizeCost = price;
 }  
   
 Pizza.prototype.pizzaPrice = function () {
-  this.totalPrice = this.sizeCost + this.toppingsPrice;
+  return this.totalPrice = this.sizeCost + this.toppingsPrice;
 }
 
 
@@ -43,7 +40,7 @@ function ShoppingCart() {
 
 ShoppingCart.prototype.addPizza = function(pizza) {
   pizza.id = this.assignPizzaId();
-  this.pizzas.push(pizza)
+  this.pizzas.push(pizza);
 }
 
 ShoppingCart.prototype.assignPizzaId = function() { //assign Id 
@@ -65,46 +62,49 @@ ShoppingCart.prototype.pizzaTracker = function(id) { //find contact or search
 
 // User Interface Logic
 
-let shoppingCart = new ShoppingCart();
-/*
-function displayPizzaSizeAndToppings(shoppingCartToDisplay) {
-  let pizzaList = $("ul#pizza-toppings");
-  let htmlForPizzaList = "";
-  shoppingCartToDisplay.pizzas.forEach(function(pizza) {
-    htmlForPizzaList += "<li id=" + pizza.id + ">" + pizza.size + " " + pizza.toppings + "</li>";
-  });
-  pizzaList.html(htmlForPizzaList);
-}
-*/
 
-   
+
+function attachEventListeners(newPizza) {
+  $("#confirm").click(function() {
+    let sizePrice = newPizza.selectSize();
+    let topPrice = newPizza.addToppings();
+    let totalPrice = newPizza.pizzaPrice();
+
+    $("#size-price").text(sizePrice);
+    $("#toppings-price").text(topPrice);
+    $("#pizza-price").text(totalPrice);
+
+  });
+}
+
 
 
 $(document).ready(function() {
+  let shoppingCart = new ShoppingCart();    // Do this BEFORE submit in order to create Shopping Cart before submit function
   $("#pizza-checkbox").submit(function(event) {
     event.preventDefault();
     const pizzaSize = $("input:radio[name=size]:checked").val();
     $("#pizza-size").text(pizzaSize);
-    let toppingSelection = $("input:checkbox[name=pizza-topping]:checked").each(function() {
+    let toppingSelection = [];
+    $("input:checkbox[name=pizza-topping]:checked").each(function() {
+      //look at resetting the checkbox here
       const selectedToppings = $(this).val();
-      $("#pizza-toppings").append(selectedToppings + "<br>");  
+      $("#pizza-toppings").append("<li>" + selectedToppings + "</li>"); 
+      toppingSelection.push(selectedToppings); 
     })
-    let newPizza = new Pizza(pizzaSize, toppingSelection)
+    let newPizza = new Pizza(pizzaSize, toppingSelection);
     shoppingCart.addPizza(newPizza);
+    attachEventListeners(newPizza);
   })
 })
-
-
+// Run all pizza price methods before line 89 
 
 /*
- for (let i= 0; i< this.toppings.length -1; i++) {
-    if (i > 2) {                                                  //
-        priceOfToppings += 1;
-    }
-  }
-
-
-   
-
-  
-  */
+Pizza.prototype.addToppings = function() {
+  let priTop = 0;
+  this.toppings.forEach(() => {
+    priceOfToppings += 1;
+  });
+  this.toppingsPrice = priTop;
+}
+*/
