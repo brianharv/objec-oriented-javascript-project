@@ -48,21 +48,7 @@ ShoppingCart.prototype.assignPizzaId = function() { //assign Id
   return this.pizzaId;
 }
 
-
-ShoppingCart.prototype.pizzaTracker = function(id) { //find contact or search
-  for (let i=0; i< this.pizzas.length -1; i++) {
-    if (this.pizzas[i]) {
-      if (this.pizzas[i].id == id) {
-        return this.pizzas[i];
-      }
-    } 
-  };
-  return false;
-}
-
 // User Interface Logic
-
-
 
 function attachEventListeners(newPizza) {
   $("#confirm").click(function() {
@@ -73,15 +59,31 @@ function attachEventListeners(newPizza) {
     $("#size-price").text(sizePrice);
     $("#toppings-price").text(topPrice);
     $("#pizza-price").text(totalPrice);
-
+    $("#cost-output").show();
+    $("#checkbox-output").hide();
+    $("radio-output").hide();
   });
+}
+
+function resetCheckBoxes(){
+  $('input[type=checkbox]').each(function() { 
+    this.checked = false; 
+  }); 
+  $("input:radio[name=size]:checked").each(function() {
+    this.checked = false;
+  });
+
 }
 
 
 
 $(document).ready(function() {
   let shoppingCart = new ShoppingCart();    // Do this BEFORE submit in order to create Shopping Cart before submit function
-  $("#pizza-checkbox").submit(function(event) {
+    $("#radio-output").hide();
+    $("#checkbox-output").hide();
+    $("#cost-output").hide();
+    $("#confirm").hide();
+    $("#pizza-checkbox").submit(function(event) {
     event.preventDefault();
     const pizzaSize = $("input:radio[name=size]:checked").val();
     $("#pizza-size").text(pizzaSize);
@@ -95,16 +97,11 @@ $(document).ready(function() {
     let newPizza = new Pizza(pizzaSize, toppingSelection);
     shoppingCart.addPizza(newPizza);
     attachEventListeners(newPizza);
+    resetCheckBoxes();
+    $("#radio-output").show();
+    $("#checkbox-output").show();
+    $("#confirm").show();
+    
+    
   })
 })
-// Run all pizza price methods before line 89 
-
-/*
-Pizza.prototype.addToppings = function() {
-  let priTop = 0;
-  this.toppings.forEach(() => {
-    priceOfToppings += 1;
-  });
-  this.toppingsPrice = priTop;
-}
-*/

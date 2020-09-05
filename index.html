@@ -47,7 +47,7 @@
               </label>
             </div>
           </fieldset>
-          <fieldset>
+          <fieldset id="toppings-checkbox">
             <legend>Choose Your Toppings - $1 Each </legend>
             <div>
               <input type="checkbox" id="cheese-cb" name="pizza-topping" value="cheese">
@@ -107,14 +107,14 @@
           <ul id="pizza-toppings">
           </ul>
         </div>
-        <button id="confirm" class="btn btn-secondary"></button>
+        <button id="confirm"  class="btn-secondary">Confirm</button>
       </div>
     </div>
     <div class="row">
-      <div class="col-md-4">
-        <h4 id="size-price"></h4>
-        <h4 id="toppings-price"></h4>
-        <h4 id="pizza-price"></h4>
+      <div class="col-md-4" id="cost-output">
+        <h4>Pizza Size: $<span id="size-price"></h4>
+        <h4>Toppings: $<span id="toppings-price"></h4>
+        <h2>Total: $<span id="pizza-price"></h2>
       </div>
     </div>
     <!--output-->
