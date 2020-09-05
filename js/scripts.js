@@ -11,8 +11,6 @@ Pizza.prototype.addToppings = function() {
   return this.toppingsPrice = this.toppings.length;
 }  
 
-// this.toppingsPrice = toppings.length;
-
 Pizza.prototype.selectSize = function() {
   let price = 0;
   if (this.size === "small") {
@@ -43,7 +41,7 @@ ShoppingCart.prototype.addPizza = function(pizza) {
   this.pizzas.push(pizza);
 }
 
-ShoppingCart.prototype.assignPizzaId = function() { //assign Id 
+ShoppingCart.prototype.assignPizzaId = function() {
   this.pizzaId += 1;
   return this.pizzaId;
 }
@@ -59,7 +57,7 @@ function attachEventListeners(newPizza) {
     $("#size-price").text(sizePrice);
     $("#toppings-price").text(topPrice);
     $("#pizza-price").text(totalPrice);
-    $("#cost-output").show();
+    $("#cost-output").fadeIn();
     $("#checkbox-output").hide();
     $("radio-output").hide();
   });
@@ -78,7 +76,7 @@ function resetCheckBoxes(){
 
 
 $(document).ready(function() {
-  let shoppingCart = new ShoppingCart();    // Do this BEFORE submit in order to create Shopping Cart before submit function
+  let shoppingCart = new ShoppingCart(); 
     $("#radio-output").hide();
     $("#checkbox-output").hide();
     $("#cost-output").hide();
@@ -89,7 +87,6 @@ $(document).ready(function() {
     $("#pizza-size").text(pizzaSize);
     let toppingSelection = [];
     $("input:checkbox[name=pizza-topping]:checked").each(function() {
-      //look at resetting the checkbox here
       const selectedToppings = $(this).val();
       $("#pizza-toppings").append("<li>" + selectedToppings + "</li>"); 
       toppingSelection.push(selectedToppings); 
@@ -98,9 +95,9 @@ $(document).ready(function() {
     shoppingCart.addPizza(newPizza);
     attachEventListeners(newPizza);
     resetCheckBoxes();
-    $("#radio-output").show();
-    $("#checkbox-output").show();
-    $("#confirm").show();
+    $("#radio-output").fadeIn();
+    $("#checkbox-output").fadeIn();
+    $("#confirm").fadeIn();
     
     
   })

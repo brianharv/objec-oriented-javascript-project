@@ -10,10 +10,9 @@ _An application that lets the user order a pizza and see the prize change as var
 
 ## Setup/Installation Requirements
 
-* _You can view and use application at GitHub pages_
-* _Otherwise you may download the repository by following this link_.
-* _To view the project you will need to open the project folder in VSCode or another similar application.
-
+* _Clone repository from [GitHub](https://github.com/brianharv/objec-oriented-javascript-project)._
+* _Open the project in VSCode or another code editor._
+* _Drag and drop the index.html file into the URL bar of your web browser._
 
 
 ## Specs
@@ -41,4 +40,4 @@ _Bootstrap_
 
 *_This application operates under the GPL license._*
 
-Copyright (c) 2016 **_Brian Harvey_**
+Copyright (c) 2020 **_Brian Harvey_**
