@@ -59,11 +59,14 @@ function attachEventListeners(newPizza) {
     $("#pizza-price").text(totalPrice);
     $("#cost-output").fadeIn();
     $("#checkbox-output").hide();
-   // $("#checkbox-output").val("");
     $("#radio-output").hide();
     $("#pizza-toppings").empty();
-   // $("#pizza-size").hide();
+    $("#next-pizza").fadeIn();
+  });
 
+  $("#start-new").click(function() {
+    $("#cost-output").hide();
+    $("#next-pizza").fadeOut();
   });
 }
 
@@ -103,9 +106,6 @@ $(document).ready(function() {
     $("#radio-output").fadeIn();
     $("#checkbox-output").fadeIn();
     $("#confirm").fadeIn();
-    
-
-    
     
   })
 })
