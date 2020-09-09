@@ -16,9 +16,15 @@ _An application that lets the user order a pizza and see the prize change as var
 
 
 ## Specs
-Spec 1: Pizza has selectable sizes and toppings.
+Spec 1: Pizza has selectable sizes and toppings. <br>
+Input: let newpizza = new Pizza();
+Output: newPizza("size", "toppings");
+
 
 Spec 2: Pizza prices changes based off the value of the pizza size and toppings amount.
+Input: const toppings = add(1, 1, 1);
+       const pizzaSize = 10;    
+Output: (toppings + pizzaSize).toEqual(13);
 
 ## Known Bugs
 

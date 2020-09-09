@@ -59,7 +59,11 @@ function attachEventListeners(newPizza) {
     $("#pizza-price").text(totalPrice);
     $("#cost-output").fadeIn();
     $("#checkbox-output").hide();
-    $("radio-output").hide();
+   // $("#checkbox-output").val("");
+    $("#radio-output").hide();
+    $("#pizza-toppings").empty();
+   // $("#pizza-size").hide();
+
   });
 }
 
@@ -95,9 +99,12 @@ $(document).ready(function() {
     shoppingCart.addPizza(newPizza);
     attachEventListeners(newPizza);
     resetCheckBoxes();
+    
     $("#radio-output").fadeIn();
     $("#checkbox-output").fadeIn();
     $("#confirm").fadeIn();
+    
+
     
     
   })
